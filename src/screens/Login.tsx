@@ -18,7 +18,7 @@ export default function Login() {
 
   const emailOk = email.includes("@")
   const canSubmit = emailOk && password
-  const isSending = status === "loading"
+  const isLoading = status === "loading"
 
   function onSubmit() {
     setSubmitted(true)
@@ -49,7 +49,7 @@ export default function Login() {
               <Text style={styles.label}>Password:</Text>
               <TextInput placeholder="Please enter your password" style={[styles.input, submitted && !password && styles.inputError]} onChangeText={setPassword} secureTextEntry={true} />
               {submitted && !password && <Text style={styles.errorText}>The password is needed</Text>}
-              <Button title={isSending ? "Sending..." : "Send"} disabled={!canSubmit || isSending} onPress={onSubmit} />
+              <Button title={isLoading ? "Loading..." : "Login"} disabled={!canSubmit || isLoading} onPress={onSubmit} />
               {status === "error" && <Text style={[styles.statusText]}>❌ Wrong credentials.</Text>}
             </View>
           </View>
