@@ -4,7 +4,7 @@ App mobile realizzata con **Expo / React Native** per il progetto finale del cor
 
 **Author:** Francesca Oliverio
 
-**GitHub:** [→ ItalianMealsApp](https://github.com/francescaoliverio/react-native.git)
+**GitHub:** [→ ItalianMealsApp](https://github.com/francescaoliverio/italian-meals-app-react-native.git)
 
 ---
 
@@ -24,7 +24,7 @@ Italian Meals App permette di esplorare piatti della cucina italiana tramite l'A
 ### Passi
 
 ```bash
-git clone https://github.com/francescaoliverio/react-native.git
+git clone https://github.com/francescaoliverio/italian-meals-app-react-native.git
 cd ItalianMealsApp
 npm install
 npx expo start
