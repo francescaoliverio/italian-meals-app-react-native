@@ -14,7 +14,6 @@ export const styles = StyleSheet.create({
   },
   scrollView: {
     flex: 1,
-    justifyContent: "center",
     padding: spacing.md,
     gap: spacing.md
   },
@@ -133,7 +132,7 @@ export const styles = StyleSheet.create({
   },
   inputError: {
     borderColor: colors.error,
-    backgroundColor: "#fdd"
+    backgroundColor: "#f422"
   },
   errorText: {
     color: colors.error,

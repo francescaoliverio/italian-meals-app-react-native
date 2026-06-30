@@ -67,7 +67,7 @@ export default function Details() {
 
   return (
     <SafeAreaView style={styles.safeAreaView}>
-      <ScrollView style={{ flex: 1 }}>
+      <ScrollView style={styles.scrollView}>
         {/* Image */}
         <Image source={{ uri: meal.strMealThumb }} style={{ width: "100%", height: 200 }} />
         <View style={styles.container}>
