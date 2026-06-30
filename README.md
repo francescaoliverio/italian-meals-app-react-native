@@ -87,16 +87,39 @@ Allo stesso modo, la sessione utente (dati di login, avatar, nome) è gestita tr
 
 ## Struttura del progetto
 
-```
-src/
-  components/   MealCard, Avatar, LoadingView, ErrorView, FavoriteBtn
-  screens/      Login, Home, Details, Settings
-  navigation/   configurazione React Navigation
-  services/     mealsApi.ts, auth.ts, storage.ts
-  context/      FavoritesContext, AuthContext
-  theme/        colori, spacing
-App.tsx
-PROGRESS.md
-README.md
-docs/screenshots/
-```
+```text
+├── docs/
+│   └── ASSIGNMENT.md
+├── src/
+│   ├── components/
+│   │   ├── Avatar.tsx
+│   │   ├── Button.tsx
+│   │   ├── ErrorView.tsx
+│   │   ├── FavoriteBtn.tsx
+│   │   ├── LoadingView.tsx
+│   │   ├── LogoutButton.tsx
+│   │   └── MealCard.tsx
+│   ├── context/
+│   │   ├── AuthContext.tsx
+│   │   └── FavoritesContext.tsx
+│   ├── hooks/
+│   │   └── useMeals.ts
+│   ├── screens/
+│   │   ├── Details.tsx
+│   │   ├── Favorites.tsx
+│   │   ├── Home.tsx
+│   │   ├── Login.tsx
+│   │   └── Settings.tsx
+│   ├── services/
+│   │   ├── auth.ts
+│   │   ├── mealsApi.ts
+│   │   └── storage.ts
+│   ├── theme/
+│   │   ├── styles.ts
+│   │   └── tokens.ts
+│   └── types/
+│       └── meal.ts
+├── App.tsx
+├── index.ts
+├── PROGRESS.md
+└── README.md
