@@ -11,6 +11,7 @@ import Favorites from "./src/screens/Favorites"
 import Settings from "./src/screens/Settings"
 import Login from "./src/screens/Login"
 import LogoutButton from "./src/components/LogoutButton"
+import LoadingView from "./src/components/LoadingView"
 
 const useIsSignedIn = () => {
   const { user } = useAuth()
@@ -69,9 +70,19 @@ export default function App() {
     <SafeAreaProvider style={{ flex: 1 }}>
       <AuthProvider>
         <FavoritesProvider>
-          <Navigation linking={linking} />
+          <NavigationGuard />
         </FavoritesProvider>
       </AuthProvider>
     </SafeAreaProvider>
   )
+}
+
+function NavigationGuard() {
+  const { isLoading } = useAuth()
+  // If the app is still loading the user session from local storage, prevent rendering the navigator.
+  // This prevents deep linking from failing when checking protected routes during boot.
+  if (isLoading) {
+    return <LoadingView />
+  }
+  return <Navigation linking={linking} />
 }
