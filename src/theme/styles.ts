@@ -68,10 +68,10 @@ export const styles = StyleSheet.create({
     alignSelf: "center"
   },
   filterFilled: {
-    backgroundColor: colors.textPrimary,
+    backgroundColor: colors.textPrimary
   },
   filterOutlined: {
-    backgroundColor: colors.background,
+    backgroundColor: colors.background
   },
   title: {
     marginBottom: 6,

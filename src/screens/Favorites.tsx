@@ -5,11 +5,12 @@ import { useMemo } from "react"
 import { useMeals } from "../hooks/useMeals"
 import { useFavorites } from "../context/FavoritesContext"
 import { SafeAreaView } from "react-native-safe-area-context"
-import { FlatList, Pressable, Text, View } from "react-native"
+import { FlatList, Text } from "react-native"
 import Button from "../components/Button"
 import MealCard from "../components/MealCard"
-import ErrorView from "../components/ErrorView"
+import MealFilters from "../components/MealFilters"
 import LoadingView from "../components/LoadingView"
+import ErrorView from "../components/ErrorView"
 import { styles } from "../theme/styles"
 
 export default function Favorites() {
@@ -38,7 +39,7 @@ export default function Favorites() {
       <SafeAreaView style={styles.centeredContainer}>
         <Text style={styles.title}>Oh no!</Text>
         <Text style={styles.text}>You haven't added any recipes to your favorites yet. Go back to recipes to discover your next favorite dish!</Text>
-        <Button onPress={() => navigation.navigate("Home")} title="Back to Recipes" />
+        <Button onPress={() => navigation.reset({ index: 0, routes: [{ name: "Home" }] })} title="Back to Recipes" />
       </SafeAreaView>
     )
   }
@@ -49,16 +50,7 @@ export default function Favorites() {
         data={favoriteMeals}
         keyExtractor={(item) => item.idMeal}
         contentContainerStyle={styles.flatList}
-        ListHeaderComponent={
-          <View style={styles.filtersContainer}>
-            <Pressable onPress={() => navigation.navigate("Home")} style={({ pressed }) => [styles.filterOutlined, pressed && { opacity: 0.7 }]}>
-              <Text style={styles.text}>All</Text>
-            </Pressable>
-            <Pressable style={({ pressed }) => [styles.filterFilled, pressed && { opacity: 0.7 }]}>
-              <Text style={styles.textLight}>Favorites</Text>
-            </Pressable>
-          </View>
-        }
+        ListHeaderComponent={<MealFilters activeFilter="favorites" />}
         renderItem={({ item }) => (
           <MealCard
             meal={item}
