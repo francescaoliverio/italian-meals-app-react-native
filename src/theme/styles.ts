@@ -48,8 +48,8 @@ export const styles = StyleSheet.create({
     gap: spacing.sm
   },
   button: {
-    paddingVertical: spacing.md,
-    paddingHorizontal: spacing.xl,
+    paddingVertical: spacing.sm,
+    paddingHorizontal: spacing.lg,
     borderRadius: borderRadius.round,
     backgroundColor: colors.primary,
     alignSelf: "center"
@@ -59,22 +59,19 @@ export const styles = StyleSheet.create({
     textAlign: "center",
     fontWeight: "500"
   },
-  filterFilled: {
-    paddingVertical: spacing.sm,
-    paddingHorizontal: spacing.lg,
+  filter: {
+    paddingVertical: spacing.xs,
+    paddingHorizontal: spacing.md,
     borderRadius: borderRadius.round,
+    borderColor: colors.textPrimary,
     borderWidth: 1,
-    backgroundColor: colors.textPrimary,
     alignSelf: "center"
   },
+  filterFilled: {
+    backgroundColor: colors.textPrimary,
+  },
   filterOutlined: {
-    paddingVertical: spacing.sm,
-    paddingHorizontal: spacing.lg,
-    borderRadius: borderRadius.round,
-    borderWidth: 1,
-    borderColor: colors.textPrimary,
     backgroundColor: colors.background,
-    alignSelf: "center"
   },
   title: {
     marginBottom: 6,

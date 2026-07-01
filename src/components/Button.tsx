@@ -7,11 +7,12 @@ interface ButtonProps {
   title: string
   onPress: () => void
   disabled?: boolean
+  style?: {}
 }
 
-export default function Button({ title, onPress, disabled = false }: ButtonProps) {
+export default function Button({ title, onPress, disabled = false, style = {} }: ButtonProps) {
   return (
-    <Pressable onPress={onPress} disabled={disabled} style={({ pressed }) => [styles.button, pressed && { opacity: 0.8 }, disabled && { opacity: 0.5 }]}>
+    <Pressable onPress={onPress} disabled={disabled} style={({ pressed }) => [styles.button, pressed && { opacity: 0.8 }, disabled && { opacity: 0.5 }, style]}>
       <Text style={styles.buttonText}>{title}</Text>
     </Pressable>
   )
