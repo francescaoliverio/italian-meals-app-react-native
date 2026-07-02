@@ -2,6 +2,7 @@
 
 import { Pressable, Text } from "react-native"
 import { useFavorites } from "../context/FavoritesContext"
+import { colors } from "../theme/tokens"
 
 interface Props {
   idMeal: string
@@ -13,7 +14,7 @@ export default function FavoriteBtn({ idMeal }: Props) {
 
   return (
     <Pressable onPress={() => toggleFavorite(idMeal)}>
-      <Text style={{ fontSize: 24, color: "#f24" }} accessibilityRole="button" accessibilityLabel="Add to favorites">
+      <Text style={{ fontSize: 24, color: colors.primary }} accessibilityRole="button" accessibilityLabel="Add to favorites">
         {active ? "♥" : "♡"}
       </Text>
     </Pressable>
