@@ -10,8 +10,9 @@ import Details from "./src/screens/Details"
 import Favorites from "./src/screens/Favorites"
 import Settings from "./src/screens/Settings"
 import Login from "./src/screens/Login"
-import LogoutButton from "./src/components/LogoutButton"
 import LoadingView from "./src/components/LoadingView"
+import { colors } from "./src/theme/tokens"
+import HeaderBtns from "./src/components/HeaderBtns"
 
 const useIsSignedIn = () => {
   const { user } = useAuth()
@@ -23,6 +24,10 @@ const useIsSignedOut = () => {
 }
 
 const Stack = createNativeStackNavigator({
+  screenOptions: {
+    headerStyle: { backgroundColor: colors.primary },
+    headerTintColor: colors.textLight
+  },
   screens: {
     Home: {
       if: useIsSignedIn,
@@ -30,7 +35,7 @@ const Stack = createNativeStackNavigator({
       linking: { path: "home" },
       options: {
         title: "Italian Meals",
-        headerRight: () => <LogoutButton />
+        headerRight: () => <HeaderBtns navActions={["settings"]} />
       }
     },
     Favorites: {
@@ -39,24 +44,33 @@ const Stack = createNativeStackNavigator({
       linking: { path: "favorites" },
       options: {
         title: "Your Favorites",
-        headerRight: () => <LogoutButton />
+        headerRight: () => <HeaderBtns navActions={["settings"]} />
       }
     },
     Details: {
       if: useIsSignedIn,
       screen: Details,
       linking: { path: "details/:id" },
-      options: { title: "Recipe" }
+      options: {
+        title: "Recipe",
+        headerRight: () => <HeaderBtns navActions={["settings"]} />
+      }
     },
     Settings: {
       if: useIsSignedIn,
       screen: Settings,
-      linking: { path: "settings" }
+      linking: { path: "settings" },
+      options: {
+        headerRight: () => <HeaderBtns />
+      }
     },
     Login: {
       if: useIsSignedOut,
       screen: Login,
-      linking: { path: "login" }
+      linking: { path: "login" },
+      options: {
+        headerShown: false
+      }
     }
   }
 })
