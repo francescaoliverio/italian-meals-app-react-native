@@ -13,6 +13,7 @@ import Login from "./src/screens/Login"
 import LoadingView from "./src/components/LoadingView"
 import { colors } from "./src/theme/tokens"
 import HeaderBtns from "./src/components/HeaderBtns"
+import HeaderButton from "./src/components/HeaderButton"
 
 const useIsSignedIn = () => {
   const { user } = useAuth()
@@ -26,7 +27,8 @@ const useIsSignedOut = () => {
 const Stack = createNativeStackNavigator({
   screenOptions: {
     headerStyle: { backgroundColor: colors.primary },
-    headerTintColor: colors.textLight
+    headerTintColor: colors.textLight,
+    headerLeft: ({ canGoBack }) => canGoBack && <HeaderButton iconName="chevron-back-outline" onPress={() => navigation.back()} />
   },
   screens: {
     Home: {
