@@ -1,11 +1,14 @@
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context"
 import { ScrollView, Text } from "react-native"
-import { useAuth } from "../context/AuthContext"
 import Avatar from "../components/Avatar"
+import ThemeToggle from "../components/ThemeToggle"
+import { useAuth } from "../context/AuthContext"
+import { useTheme } from "../context/ThemeContext"
 import { useStyles } from "../theme/styles"
 
 export default function Settings() {
   const styles = useStyles()
+  const { isDarkMode, toggleTheme } = useTheme()
   const { user } = useAuth()
   if (!user) return null
 
@@ -15,6 +18,7 @@ export default function Settings() {
         <ScrollView contentContainerStyle={styles.scrollView}>
           <Avatar uri={user.avatarUri} />
           <Text style={styles.title}>Welcome back, {user.name}!</Text>
+          <ThemeToggle label="Dark Mode" value={isDarkMode} onValueChange={toggleTheme} />
         </ScrollView>
       </SafeAreaView>
     </SafeAreaProvider>
