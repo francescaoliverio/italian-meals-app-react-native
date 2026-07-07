@@ -4,11 +4,12 @@ import { useNavigation } from "@react-navigation/native"
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context"
 import { KeyboardAvoidingView, Platform, Text, TextInput, View } from "react-native"
 import Button from "../components/Button"
-import { styles } from "../theme/styles"
+import { useStyles } from "../theme/styles"
 
 type StatusType = "" | "loading" | "error" | "success"
 
 export default function Login() {
+  const styles = useStyles()
   const navigation = useNavigation<any>()
   const { login } = useAuth()
   const [email, setEmail] = useState("")

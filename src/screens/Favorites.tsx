@@ -11,9 +11,11 @@ import MealCard from "../components/MealCard"
 import MealFilters from "../components/MealFilters"
 import LoadingView from "../components/LoadingView"
 import ErrorView from "../components/ErrorView"
-import { styles } from "../theme/styles"
+import { useStyles } from "../theme/styles"
 
 export default function Favorites() {
+  const styles = useStyles()
+
   // ===== Navigation =====
   const navigation = useNavigation<any>()
 

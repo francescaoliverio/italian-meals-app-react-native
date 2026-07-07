@@ -1,6 +1,11 @@
 // src\theme\tokens.ts
 
 export const colors = {
+  primary: "#ff2244",
+  textLight: "#ffffff",
+}
+
+export const lightColors = {
   error: "#ff4422",
   primary: "#ff2244",
   background: "#ffffff",
@@ -9,6 +14,18 @@ export const colors = {
   textLight: "#ffffff",
   border: "#aaaaaa"
 }
+
+export const darkColors = {
+  error: "#ff4422",
+  primary: "#ff2244",
+  background: "#222222",
+  textPrimary: "#ffffff",
+  textSecondary: "#cccccc",
+  textLight: "#222222",
+  border: "#424242"
+}
+
+export const getColors = (isDarkMode: boolean) => (isDarkMode ? darkColors : lightColors)
 
 export const spacing = {
   xs: 4,

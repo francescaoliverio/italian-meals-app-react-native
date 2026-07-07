@@ -2,13 +2,14 @@
 
 import { Pressable, Text } from "react-native"
 import { useFavorites } from "../context/FavoritesContext"
-import { colors } from "../theme/tokens"
+import { useColors } from "../theme/styles"
 
 interface Props {
   idMeal: string
 }
 
 export default function FavoriteBtn({ idMeal }: Props) {
+  const colors = useColors()
   const { favoriteIds, toggleFavorite } = useFavorites()
   const active = favoriteIds.includes(idMeal)
 

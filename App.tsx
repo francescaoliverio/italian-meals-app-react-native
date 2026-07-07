@@ -11,9 +11,10 @@ import Favorites from "./src/screens/Favorites"
 import Settings from "./src/screens/Settings"
 import Login from "./src/screens/Login"
 import LoadingView from "./src/components/LoadingView"
-import { colors } from "./src/theme/tokens"
 import HeaderBtns from "./src/components/HeaderBtns"
 import HeaderButton from "./src/components/HeaderButton"
+import { ThemeProvider } from "./src/context/ThemeContext"
+import { colors } from "./src/theme/tokens"
 
 const useIsSignedIn = () => {
   const { user } = useAuth()
@@ -84,11 +85,13 @@ const Navigation = createStaticNavigation(Stack)
 export default function App() {
   return (
     <SafeAreaProvider style={{ flex: 1 }}>
-      <AuthProvider>
-        <FavoritesProvider>
-          <NavigationGuard />
-        </FavoritesProvider>
-      </AuthProvider>
+      <ThemeProvider>
+        <AuthProvider>
+          <FavoritesProvider>
+            <NavigationGuard />
+          </FavoritesProvider>
+        </AuthProvider>
+      </ThemeProvider>
     </SafeAreaProvider>
   )
 }

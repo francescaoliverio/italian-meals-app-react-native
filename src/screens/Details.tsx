@@ -9,9 +9,10 @@ import FavoriteBtn from "../components/FavoriteBtn"
 import LoadingView from "../components/LoadingView"
 import ErrorView from "../components/ErrorView"
 import { MealDetailState } from "../types/meal"
-import { styles } from "../theme/styles"
+import { useStyles } from "../theme/styles"
 
 export default function Details() {
+  const styles = useStyles()
   const route = useRoute<any>()
 
   const idMeal = route.params?.id ?? "Nessun pasto corrispondente"
@@ -81,14 +82,16 @@ export default function Details() {
             <Text style={styles.subtitle}>Ingredients</Text>
             <View>
               {ingredientsArray.map((ingredient, index) => (
-                <Text key={index}>• {ingredient}</Text>
+                <Text style={[styles.text, { textAlign: "left" }]} key={index}>
+                  • {ingredient}
+                </Text>
               ))}
             </View>
           </View>
           {/* Instructions */}
           <View>
             <Text style={styles.subtitle}>Instructions</Text>
-            <Text>{meal.strInstructions}</Text>
+            <Text style={[styles.text, { textAlign: "left" }]}>{meal.strInstructions}</Text>
           </View>
         </View>
       </ScrollView>

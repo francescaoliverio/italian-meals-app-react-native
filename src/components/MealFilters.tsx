@@ -3,13 +3,14 @@
 import React from "react"
 import { View, Text, Pressable } from "react-native"
 import { useNavigation } from "@react-navigation/native"
-import { styles } from "../theme/styles"
+import { useStyles } from "../theme/styles"
 
 interface MealFiltersProps {
   activeFilter: "all" | "favorites"
 }
 
 export default function MealFilters({ activeFilter }: MealFiltersProps) {
+  const styles = useStyles()
   const navigation = useNavigation<any>()
 
   const handleNavigate = (routeName: "Home" | "Favorites") => {

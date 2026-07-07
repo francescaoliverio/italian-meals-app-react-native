@@ -1,12 +1,14 @@
 // src\components\LoadingView.tsx
 
 import { ActivityIndicator, View } from "react-native"
-import { styles } from "../theme/styles"
+import { useStyles } from "../theme/styles"
 
 export default function LoadingView() {
+  const styles = useStyles()
+
   return (
     <View style={styles.centeredContainer}>
-      <ActivityIndicator size="large" color="#50f" />
+      <ActivityIndicator size="large" color="#f24" />
     </View>
   )
 }

@@ -1,8 +1,9 @@
 import { Image, Text, View } from "react-native"
-import { styles } from "../theme/styles"
+import { useStyles } from "../theme/styles"
 import { useState } from "react"
 
 export default function Avatar({ uri }: { uri: string }) {
+  const styles = useStyles()
   const [failed, setFailed] = useState(false)
 
   return (

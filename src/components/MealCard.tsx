@@ -3,7 +3,7 @@
 import { Text, Image, TouchableOpacity, View } from "react-native"
 import { MealSummary } from "../types/meal"
 import FavoriteBtn from "./FavoriteBtn"
-import { styles } from "../theme/styles"
+import { useStyles } from "../theme/styles"
 
 interface Props {
   meal: MealSummary
@@ -11,6 +11,8 @@ interface Props {
 }
 
 export default function MealCard({ meal, onPress }: Props) {
+  const styles = useStyles()
+
   return (
     <TouchableOpacity onPress={onPress} style={[styles.containerDashed, { flexDirection: "row", alignItems: "center" }]}>
       <Image source={{ uri: meal.strMealThumb }} style={{ width: 50, height: 50, borderRadius: 12 }} />

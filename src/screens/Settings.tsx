@@ -1,11 +1,11 @@
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context"
 import { ScrollView, Text } from "react-native"
 import { useAuth } from "../context/AuthContext"
-import { styles } from "../theme/styles"
 import Avatar from "../components/Avatar"
+import { useStyles } from "../theme/styles"
 
 export default function Settings() {
-  console.log("settings 1")
+  const styles = useStyles()
   const { user } = useAuth()
   if (!user) return null
 
