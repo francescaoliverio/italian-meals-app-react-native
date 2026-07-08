@@ -46,9 +46,16 @@ export const getGlobalStyles = (isDarkMode: boolean) => {
       padding: spacing.md,
       gap: spacing.md
     },
+    settingContainer: {
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignItems: "center",
+      gap: spacing.sm
+    },
     filtersContainer: {
       flexDirection: "row",
       justifyContent: "center",
+      alignItems: "center",
       gap: spacing.sm
     },
     button: {

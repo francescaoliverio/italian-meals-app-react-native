@@ -15,9 +15,9 @@ export default function ThemeToggle({ label, value, onValueChange }: ThemeToggle
   const styles = useStyles()
 
   return (
-    <View style={styles.filtersContainer}>
-      <Text style={styles.label}>{label}</Text>
-      <Switch value={value} onValueChange={onValueChange} trackColor={{ false: colors.border, true: colors.primary }} thumbColor={value ? "#fff" : "#eee"} />
+    <View style={styles.settingContainer}>
+      <Text style={styles.text}>{label}</Text>
+      <Switch value={value} onValueChange={onValueChange} ios_backgroundColor={ value ? colors.primary : colors.border } trackColor={{ false: colors.border, true: colors.primary }} thumbColor={value ? "#fff" : "#eee"} />
     </View>
   )
 }

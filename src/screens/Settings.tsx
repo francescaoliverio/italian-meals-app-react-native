@@ -17,8 +17,11 @@ export default function Settings() {
       <SafeAreaView style={styles.safeAreaView}>
         <ScrollView contentContainerStyle={styles.scrollView}>
           <Avatar uri={user.avatarUri} />
-          <Text style={styles.title}>Welcome back, {user.name}!</Text>
+        <Text style={styles.title}>{user.name}</Text>
+        <View style={styles.containerDashed}>
+          <Text style={styles.subtitle}>Edit your app settings</Text>
           <ThemeToggle label="Dark Mode" value={isDarkMode} onValueChange={toggleTheme} />
+        </View>
         </ScrollView>
       </SafeAreaView>
     </SafeAreaProvider>
