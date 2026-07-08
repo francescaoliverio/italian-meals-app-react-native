@@ -12,7 +12,7 @@ import Settings from "./src/screens/Settings"
 import Login from "./src/screens/Login"
 import LoadingView from "./src/components/LoadingView"
 import HeaderBtns from "./src/components/HeaderBtns"
-import HeaderButton from "./src/components/HeaderButton"
+import IconButton from "./src/components/IconButton"
 import { ThemeProvider } from "./src/context/ThemeContext"
 import { colors } from "./src/theme/tokens"
 
@@ -29,7 +29,7 @@ const Stack = createNativeStackNavigator({
   screenOptions: ({ navigation }) => ({
     headerStyle: { backgroundColor: colors.primary },
     headerTintColor: colors.textLight,
-    headerLeft: ({ canGoBack }) => (canGoBack ? <HeaderButton iconName="chevron-back-outline" onPress={() => navigation.goBack()} /> : null)
+    headerLeft: ({ canGoBack }) => (canGoBack ? <IconButton iconName="chevron-back-outline" onPress={() => navigation.goBack()} /> : null)
   }),
   screens: {
     Home: {

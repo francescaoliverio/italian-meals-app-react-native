@@ -10,15 +10,14 @@ export const getGlobalStyles = (isDarkMode: boolean) => {
   return StyleSheet.create({
     safeAreaView: {
       flex: 1,
+      padding: spacing.md,
       backgroundColor: colors.background
     },
     flatList: {
-      padding: spacing.md,
       gap: spacing.md
     },
     scrollView: {
       flex: 1,
-      padding: spacing.md,
       gap: spacing.md
     },
     centeredContainer: {
@@ -56,7 +55,14 @@ export const getGlobalStyles = (isDarkMode: boolean) => {
       flexDirection: "row",
       justifyContent: "center",
       alignItems: "center",
+      paddingVertical: spacing.md,
       gap: spacing.sm
+    },
+    iconButton: {
+      padding: spacing.md,
+      justifyContent: "center",
+      alignItems: "center",
+      marginVertical: -10
     },
     button: {
       paddingVertical: spacing.sm,
@@ -71,7 +77,7 @@ export const getGlobalStyles = (isDarkMode: boolean) => {
       fontWeight: "500"
     },
     filter: {
-      paddingVertical: spacing.xs,
+      paddingVertical: spacing.sm,
       paddingHorizontal: spacing.md,
       borderRadius: borderRadius.round,
       borderColor: colors.textPrimary,

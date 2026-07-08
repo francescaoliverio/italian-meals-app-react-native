@@ -2,7 +2,7 @@
 
 import { useNavigation } from "@react-navigation/native"
 import { useAuth } from "../context/AuthContext"
-import HeaderButton from "./HeaderButton"
+import IconButton from "./IconButton"
 
 type NavAction = "settings" | null
 
@@ -16,8 +16,8 @@ export default function HeaderBtns({ navActions = [] }: HeaderBtnsProps) {
   const { logout } = useAuth()
   return (
     <>
-      {navActions.includes("settings") && <HeaderButton iconName="settings-outline" onPress={settings} />}
-      <HeaderButton iconName="log-out-outline" onPress={logout} />
+      {navActions.includes("settings") && <IconButton iconName="settings-outline" onPress={settings} />}
+      <IconButton iconName="log-out-outline" onPress={logout} />
     </>
   )
 }
