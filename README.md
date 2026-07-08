@@ -30,17 +30,15 @@ npm install
 npx expo start
 ```
 
-Dopo l'avvio, premi `a` per aprire su emulatore Android, oppure scansiona il QR code con l'app Expo Go.
-
 ---
 
 ## Utenti mock (login di test)
 
-| Email | Password |
-|---|---|
-| mario.rossi@student.it | React2026! |
-| giulia.bianchi@student.it | Expo2026! |
-| luca.verdi@student.it | Mobile2026! |
+| Email                     | Password    |
+| ------------------------- | ----------- |
+| mario.rossi@student.it    | React2026!  |
+| giulia.bianchi@student.it | Expo2026!   |
+| luca.verdi@student.it     | Mobile2026! |
 
 L'autenticazione è interamente locale — nessuna API esterna di login, le credenziali sono confrontate con un array mock in `services/auth.ts`.
 
@@ -49,9 +47,6 @@ L'autenticazione è interamente locale — nessuna API esterna di login, le cred
 ## API utilizzate
 
 Dati forniti da [TheMealDB](https://www.themealdb.com/documentation) (API gratuita per uso didattico, test key `1`).
-
-- Lista piatti italiani: `GET /filter.php?a=Italian`
-- Dettaglio piatto: `GET /lookup.php?i={idMeal}`
 
 ---
 
@@ -123,3 +118,4 @@ Allo stesso modo, la sessione utente (dati di login, avatar, nome) è gestita tr
 ├── index.ts
 ├── PROGRESS.md
 └── README.md
+```
