@@ -2,7 +2,7 @@
 
 export const colors = {
   primary: "#ff2244",
-  textLight: "#ffffff",
+  textLight: "#ffffff"
 }
 
 export const lightColors = {

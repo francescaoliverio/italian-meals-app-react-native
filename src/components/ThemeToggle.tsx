@@ -1,7 +1,7 @@
 // src\components\ThemeToggle.tsx
 
 import React from "react"
-import { Switch, Text, View, StyleSheet } from "react-native"
+import { Switch, Text, View } from "react-native"
 import { useColors, useStyles } from "../theme/styles"
 
 interface ThemeToggleProps {
@@ -17,7 +17,7 @@ export default function ThemeToggle({ label, value, onValueChange }: ThemeToggle
   return (
     <View style={styles.settingContainer}>
       <Text style={styles.text}>{label}</Text>
-      <Switch value={value} onValueChange={onValueChange} ios_backgroundColor={ value ? colors.primary : colors.border } trackColor={{ false: colors.border, true: colors.primary }} thumbColor={value ? "#fff" : "#eee"} />
+      <Switch value={value} onValueChange={onValueChange} ios_backgroundColor={value ? colors.primary : colors.border} trackColor={{ false: colors.border, true: colors.primary }} thumbColor={value ? "#fff" : "#eee"} />
     </View>
   )
 }
