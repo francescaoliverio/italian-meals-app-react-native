@@ -26,11 +26,11 @@ const useIsSignedOut = () => {
 }
 
 const Stack = createNativeStackNavigator({
-  screenOptions: {
+  screenOptions: ({ navigation }) => ({
     headerStyle: { backgroundColor: colors.primary },
     headerTintColor: colors.textLight,
-    headerLeft: ({ canGoBack }) => canGoBack && <HeaderButton iconName="chevron-back-outline" onPress={() => navigation.back()} />
-  },
+    headerLeft: ({ canGoBack }) => (canGoBack ? <HeaderButton iconName="chevron-back-outline" onPress={() => navigation.goBack()} /> : null)
+  }),
   screens: {
     Home: {
       if: useIsSignedIn,

@@ -13,7 +13,7 @@ interface HeaderButtonProps {
 
 export default function HeaderButton({ iconName, onPress, color = colors.textLight, size = 24 }: HeaderButtonProps) {
   return (
-    <Pressable onPress={onPress} style={{ margin: spacing.md }}>
+    <Pressable onPress={onPress} style={{ padding: spacing.md, justifyContent: "center", alignItems: "center", marginVertical: -10 }}>
       <Ionicons name={iconName} size={size} color={color} />
     </Pressable>
   )
