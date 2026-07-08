@@ -4,8 +4,7 @@ import { useNavigation } from "@react-navigation/native"
 import { useMemo } from "react"
 import { useMeals } from "../hooks/useMeals"
 import { useFavorites } from "../context/FavoritesContext"
-import { SafeAreaView } from "react-native-safe-area-context"
-import { FlatList, Text } from "react-native"
+import { FlatList, Text, View } from "react-native"
 import Button from "../components/Button"
 import MealCard from "../components/MealCard"
 import MealFilters from "../components/MealFilters"
@@ -38,16 +37,16 @@ export default function Favorites() {
   // ----- No Favorites -----
   if (favoriteMeals.length === 0) {
     return (
-      <SafeAreaView style={styles.centeredContainer}>
+      <View style={styles.centeredContainer}>
         <Text style={styles.title}>Oh no!</Text>
         <Text style={styles.text}>You haven't added any recipes to your favorites yet. Go back to recipes to discover your next favorite dish!</Text>
         <Button onPress={() => navigation.reset({ index: 0, routes: [{ name: "Home" }] })} title="Back to Recipes" />
-      </SafeAreaView>
+      </View>
     )
   }
   // ----- Favorites -----
   return (
-    <SafeAreaView style={styles.safeAreaView}>
+    <View style={styles.safeAreaView}>
       <FlatList
         data={favoriteMeals}
         keyExtractor={(item) => item.idMeal}
@@ -62,6 +61,6 @@ export default function Favorites() {
           />
         )}
       />
-    </SafeAreaView>
+    </View>
   )
 }

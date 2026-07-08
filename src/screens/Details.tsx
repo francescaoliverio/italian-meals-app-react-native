@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react"
 import { useRoute } from "@react-navigation/native"
 import { fetchMealById } from "../services/mealsApi"
-import { SafeAreaView } from "react-native-safe-area-context"
 import { Image, ScrollView, Text, View } from "react-native"
 import FavoriteBtn from "../components/FavoriteBtn"
 import LoadingView from "../components/LoadingView"
@@ -67,7 +66,7 @@ export default function Details() {
     : []
 
   return (
-    <SafeAreaView style={styles.safeAreaView}>
+    <View style={styles.safeAreaView}>
       <ScrollView style={styles.scrollView}>
         {/* Image */}
         <Image source={{ uri: meal.strMealThumb }} style={{ width: "100%", height: 200 }} />
@@ -95,6 +94,6 @@ export default function Details() {
           </View>
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </View>
   )
 }

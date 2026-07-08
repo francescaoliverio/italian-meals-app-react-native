@@ -1,8 +1,7 @@
 // src\screens\Home.tsx
 
 import { useNavigation } from "@react-navigation/native"
-import { SafeAreaView } from "react-native-safe-area-context"
-import { FlatList } from "react-native"
+import { FlatList, View } from "react-native"
 import MealCard from "../components/MealCard"
 import MealFilters from "../components/MealFilters"
 import LoadingView from "../components/LoadingView"
@@ -26,7 +25,7 @@ export default function Home() {
   if (status === "error") return <ErrorView message={message} onRetry={reload} />
   // ----- Home -----
   return (
-    <SafeAreaView style={styles.safeAreaView}>
+    <View style={styles.safeAreaView}>
       <FlatList
         data={items}
         keyExtractor={(item) => item.idMeal}
@@ -41,6 +40,6 @@ export default function Home() {
           />
         )}
       />
-    </SafeAreaView>
+    </View>
   )
 }
