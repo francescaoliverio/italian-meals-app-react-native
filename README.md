@@ -50,72 +50,10 @@ Dati forniti da [TheMealDB](https://www.themealdb.com/documentation) (API gratui
 
 ---
 
-## Deep linking
-
-Path configurato: `meal/:idMeal`, apre direttamente il dettaglio del piatto.
-
-Comando di test (Android, Expo Go):
-
-```bash
-npx uri-scheme open "exp://<IP>:8081/--/meal/52772" --android
-```
-
----
-
 ## Stato globale
 
 Lo stato dei preferiti è gestito tramite **React Context** (`FavoritesContext`), per garantire che il toggle di un preferito sia immediatamente sincronizzato tra tutte le schermate che lo mostrano (Home, Details), senza dover propagare aggiornamenti manualmente o ricaricare da `AsyncStorage` ad ogni focus.
 
 Allo stesso modo, la sessione utente (dati di login, avatar, nome) è gestita tramite **`AuthContext`**, così che ogni schermata possa accedere ai dati dell'utente loggato e gestire il logout senza prop-drilling.
 
----
-
-## Edge case gestiti
-
-- Rete assente o errore API → schermata di errore con pulsante **Riprova**
-- Login con credenziali errate → messaggio di errore, nessun crash
-- Lista piatti vuota → stato dedicato
-- Preferiti persistenti tra riavvii (`AsyncStorage`, chiave `app:v1:favs`)
-- Deep link con `idMeal` non valido → gestito senza crash
-
----
-
-## Struttura del progetto
-
-```text
-├── docs/
-│   └── ASSIGNMENT.md
-├── src/
-│   ├── components/
-│   │   ├── Avatar.tsx
-│   │   ├── Button.tsx
-│   │   ├── ErrorView.tsx
-│   │   ├── FavoriteBtn.tsx
-│   │   ├── LoadingView.tsx
-│   │   ├── LogoutButton.tsx
-│   │   └── MealCard.tsx
-│   ├── context/
-│   │   ├── AuthContext.tsx
-│   │   └── FavoritesContext.tsx
-│   ├── hooks/
-│   │   └── useMeals.ts
-│   ├── screens/
-│   │   ├── Details.tsx
-│   │   ├── Favorites.tsx
-│   │   ├── Home.tsx
-│   │   ├── Login.tsx
-│   │   └── Settings.tsx
-│   ├── services/
-│   │   ├── auth.ts
-│   │   ├── mealsApi.ts
-│   │   └── storage.ts
-│   ├── theme/
-│   │   ├── styles.ts
-│   │   └── tokens.ts
-│   └── types/
-│       └── meal.ts
-├── App.tsx
-├── index.ts
-├── PROGRESS.md
-└── README.md
-```
+Anche il tema (dark mode / light mode) è gestito con **`ThemeContext`**.

@@ -6,93 +6,24 @@
 
 This document tracks the development progress and architectural milestones for the Italian Meals application.
 
+## 📜 Google Doc
+
+Shared Google Doc: ([🔗 link](https://docs.google.com/document/d/1RXdJJVh4GlMYAngYksM9MLcUvdgkYoO3lizdgMCK36Y/))
+
 ## 📸 App Screenshots
 
-1. **Login**
-   - Controlled login form
-   - Access only with valid mock credentials
-   - Display an error message for invalid credentials
-
-![Login](./docs/screenshots/01-login.png)
-
----
-
-2. **Profile Header**
-   - Display a circular avatar (`Image` inside a container with `borderRadius` and `overflow: hidden`)
-   - Show the logged-in user's name (following the Lab 07 pattern)
-   - Visible in the list or settings screen
-
-![Profile Header](./docs/screenshots/02-profile.png)
-
----
-
-3. **Meal List**
-   - Display meals using a `FlatList`
-   - Fetch data from the Italian API
-   - Handle the following states:
-     - Loading
-     - Error
-     - Success
-     - Empty (if applicable)
-
-![Meal List](./docs/screenshots/03-list.png)
-
----
-
-4. **Search / Filter**
-   - Controlled text input
-   - Filter the meal list in real time
-   - Follow the controlled form approach from Labs 07–11
-
-![Search](./docs/screenshots/04-search.png)
-
----
-
-5. **Details**
-   - Fetch meal data from `lookup.php?i={idMeal}`
-   - Display:
-     - Meal image
-     - Meal title
-     - Instructions or ingredients
-
-![Details](./docs/screenshots/05-details.png)
-
----
-
-6. **Favorites**
-   - Toggle meals as favorites
-   - Persist favorites using `AsyncStorage`
-   - Storage key: `app:v1:favs`
-
-![Favorites](./docs/screenshots/06-favorites.png)
-
----
-
-7. **Settings**
-   - Logout button that returns the user to the login screen
-   - Display the user's avatar
-   - Display the user's name
-   - Optional theme setting
-
-![Settings](./docs/screenshots/07-settings.png)
-
----
-
-8. **Error State**
-   - Show a network/API error screen
-   - Include a **Retry** button
-   - Capture a screenshot of this state
-
-![Error State](./docs/screenshots/08-error.png)
-
----
-
-9. **Deep Link**
-   - Support opening the meal details screen via `meal/:idMeal`
-   - Capture a screenshot showing the deep-linked details screen
-   - Show the terminal with a successful `exp://` command
-
-![Deep Link](./docs/screenshots/09-deeplink.png)
+|                                                         |                                                         |
+| ------------------------------------------------------- | ------------------------------------------------------- |
+| Splash Screen                                           | Login Screen                                            |
+| ![Splash](./docs/screenshots/00-splash.png)             | ![Login](./docs/screenshots/01-login.png)               |
+| Settings Screen                                         | Details Screen                                          |
+| ![Settings](./docs/screenshots/02-settings.png)         | ![Details](./docs/screenshots/06-details.png)           |
+| Home Screen                                             |
+| ![Home 01](./docs/screenshots/03-home-01.png)           | ![Home 02](./docs/screenshots/03-home-02.png)           |
+| Search Screen                                           |
+| ![Search 01](./docs/screenshots/04-search-01.png)       | ![Search 02](./docs/screenshots/04-search-02.png)       |
+| Favorites Screen                                        |
+| ![Favorites 01](./docs/screenshots/05-favorites-01.png) | ![Favorites 02](./docs/screenshots/05-favorites-02.png) |
 
 ---
 
@@ -106,4 +37,78 @@ This document tracks the development progress and architectural milestones for t
 
 ## 📝 Notes
 
+### 💾 Context
+
 - Global Context managed with Context (Auth, Favorites, Theme)
+
+### 👁️‍🗨️ Accessibility
+
+```js
+<Pressable onPress={() => toggleFavorite(idMeal)}>
+  <Text accessibilityRole="button" accessibilityLabel="Add to favorites">
+    {active ? "♥" : "♡"}
+  </Text>
+</Pressable>
+```
+
+### 🔗 Deep Linking
+
+```js
+const Stack = createNativeStackNavigator({
+  screenOptions: ({ navigation }) => ({
+    // [...]
+  }),
+  screens: {
+     Home: {
+        if: useIsSignedIn,
+      screen: Home,
+      linking: { path: "home" },
+       // [...]
+    },
+    Favorites: {
+       if: useIsSignedIn,
+      screen: Favorites,
+      linking: { path: "favorites" },
+       // [...]
+    },
+    Details: {
+       if: useIsSignedIn,
+      screen: Details,
+      linking: { path: "details/:id" },
+       // [...]
+    },
+    Settings: {
+       if: useIsSignedIn,
+      screen: Settings,
+      linking: { path: "settings" },
+       // [...]
+    },
+    Login: {
+       if: useIsSignedOut,
+      screen: Login,
+      linking: { path: "login" },
+       // [...]
+    }
+  }
+})
+
+const linking = { prefixes: ["italianmealsapp://"] }
+
+const Navigation = createStaticNavigation(Stack)
+
+export default function App() {
+  return (
+   {/* ... */}
+      <NavigationGuard />
+   {/* ... */}
+  )
+}
+
+function NavigationGuard() {
+  const { isLoading } = useAuth()
+  if (isLoading) {
+    return <LoadingView />
+  }
+  return <Navigation linking={linking} />
+}
+```
