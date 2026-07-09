@@ -56,7 +56,7 @@ const Stack = createNativeStackNavigator({
       linking: { path: "details/:id" },
       options: {
         title: "Recipe",
-        headerRight: () => <HeaderBtns navActions={["settings"]} />
+        headerRight: () => <HeaderBtns navActions={["home", "settings"]} />
       }
     },
     Settings: {
@@ -64,7 +64,7 @@ const Stack = createNativeStackNavigator({
       screen: Settings,
       linking: { path: "settings" },
       options: {
-        headerRight: () => <HeaderBtns />
+        headerRight: () => <HeaderBtns navActions={["home"]} />
       }
     },
     Login: {
@@ -78,7 +78,7 @@ const Stack = createNativeStackNavigator({
   }
 })
 
-const linking = { prefixes: ["italianmealsapp://"] }
+const linking = { prefixes: ["italianmealsapp://", "exp://172.20.10.7:8081/--/"] }
 
 const Navigation = createStaticNavigation(Stack)
 

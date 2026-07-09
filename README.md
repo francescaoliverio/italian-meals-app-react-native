@@ -50,6 +50,30 @@ Dati forniti da [TheMealDB](https://www.themealdb.com/documentation) (API gratui
 
 ---
 
+## Deep Linking
+
+Questa app supporta deep linking sia per custom app scheme che per Expo dev URL.
+
+### Custom scheme
+
+- `italianmealsapp://home`
+- `italianmealsapp://favorites`
+- `italianmealsapp://details/53014`
+- `italianmealsapp://settings`
+- `italianmealsapp://login`
+
+### Expo dev URLs
+
+- `exp://172.20.10.7:8081/--/home`
+- `exp://172.20.10.7:8081/--/favorites`
+- `exp://172.20.10.7:8081/--/details/53014`
+- `exp://172.20.10.7:8081/--/settings`
+- `exp://172.20.10.7:8081/--/login`
+
+> N.B. Sostituisci `172.20.10.7:8081` con il tuo local Expo host se è diverso.
+
+---
+
 ## Stato globale
 
 Lo stato dei preferiti è gestito tramite **React Context** (`FavoritesContext`), per garantire che il toggle di un preferito sia immediatamente sincronizzato tra tutte le schermate che lo mostrano (Home, Details), senza dover propagare aggiornamenti manualmente o ricaricare da `AsyncStorage` ad ogni focus.
