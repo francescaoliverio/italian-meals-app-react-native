@@ -31,7 +31,6 @@ export default function Login() {
         const success = login(email, password)
         if (success) {
           setStatus("success")
-          navigation.replace("Home")
         } else {
           setStatus("error")
         }
