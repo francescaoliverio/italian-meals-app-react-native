@@ -12,18 +12,20 @@ Shared Google Doc: ([🔗 link](https://docs.google.com/document/d/1RXdJJVh4GlMY
 
 ## 📸 App Screenshots
 
-|                                                         |                                                         |
-| ------------------------------------------------------- | ------------------------------------------------------- |
-| Splash Screen                                           | Login Screen                                            |
-| ![Splash](./docs/screenshots/00-splash.png)             | ![Login](./docs/screenshots/01-login.png)               |
-| Settings Screen                                         | Details Screen                                          |
-| ![Settings](./docs/screenshots/02-settings.png)         | ![Details](./docs/screenshots/06-details.png)           |
-| Home Screen                                             |
-| ![Home 01](./docs/screenshots/03-home-01.png)           | ![Home 02](./docs/screenshots/03-home-02.png)           |
-| Search Screen                                           |
-| ![Search 01](./docs/screenshots/04-search-01.png)       | ![Search 02](./docs/screenshots/04-search-02.png)       |
-| Favorites Screen                                        |
-| ![Favorites 01](./docs/screenshots/05-favorites-01.png) | ![Favorites 02](./docs/screenshots/05-favorites-02.png) |
+|                                                              |                                                              |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Splash Screen                                                | Login Screen                                                 |
+| ![Splash](./docs/screenshots/00-splash.png)                  | ![Login](./docs/screenshots/01-login.png)                    |
+| Settings Screen                                              | Details Screen                                               |
+| ![Settings](./docs/screenshots/02-settings.png)              | ![Details](./docs/screenshots/06-details.png)                |
+| Home Screen                                                  |
+| ![Home 01](./docs/screenshots/03-home-01.png)                | ![Home 02](./docs/screenshots/03-home-02.png)                |
+| Search Screen                                                |
+| ![Search 01](./docs/screenshots/04-search-01.png)            | ![Search 02](./docs/screenshots/04-search-02.png)            |
+| Favorites Screen                                             |
+| ![Favorites 01](./docs/screenshots/05-favorites-01.png)      | ![Favorites 02](./docs/screenshots/05-favorites-02.png)      |
+| Deep Linking                                                 |
+| ![Deep Linking 01](./docs/screenshots/07-deeplinking-01.png) | ![Deep Linking 02](./docs/screenshots/07-deeplinking-02.png) |
 
 ---
 
@@ -92,7 +94,7 @@ const Stack = createNativeStackNavigator({
   }
 })
 
-const linking = { prefixes: ["italianmealsapp://"] }
+const linking = { prefixes: ["italianmealsapp://", "exp://172.20.10.7:8081/--/"] }
 
 const Navigation = createStaticNavigation(Stack)
 
